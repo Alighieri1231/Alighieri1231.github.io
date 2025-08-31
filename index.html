@@ -1,72 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Emilio José Ochoa Alva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      line-height: 1.6;
+    :root{
+      --accent:#204b9b;
+      --muted:#5b6b7c;
+      --border:#dfe6ef;
     }
-    nav {
-      float: left;
-      width: 20%;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color:#1b2430; line-height:1.6;
     }
-    nav a {
-      display: block;
-      padding: 5px;
-      text-decoration: none;
-      color: #004080;
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    /* Layout */
+    .wrap{max-width:1100px; margin:0 auto; display:grid; grid-template-columns: 220px 1fr; gap:24px; padding:28px 20px}
+    nav{position:sticky; top:20px; height:fit-content; border-right:1px solid var(--border); padding-right:16px}
+    nav .name{font-size:28px; font-weight:800; line-height:1.2}
+    nav .subtitle{color:var(--muted)}
+    nav .menu{margin-top:18px; display:flex; flex-direction:column; gap:8px}
+    nav .menu a{padding:6px 0; font-weight:600}
+    /* Header card */
+    .card{
+      border:1px solid var(--border); border-radius:10px; padding:22px; background:#fff;
     }
-    section {
-      margin-left: 22%;
-      padding: 20px;
+    .hero{display:grid; grid-template-columns:160px 1fr; gap:20px; align-items:center}
+    .hero img{width:160px; height:160px; object-fit:cover; border-radius:8px; border:1px solid var(--border)}
+    h2{margin:0 0 10px 0; font-size:24px; border-bottom:2px solid var(--border); padding-bottom:6px}
+    h3{margin:18px 0 8px 0; font-size:18px}
+    ul{margin:8px 0 0 20px}
+    .meta{color:var(--muted)}
+    .btn{
+      display:inline-block; border:1px solid var(--accent); padding:8px 12px; border-radius:6px; font-weight:600;
     }
-    img {
-      max-width: 200px;
-      border-radius: 5px;
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .pub li{margin-bottom:10px}
+    footer{padding:30px 0; text-align:center; color:var(--muted)}
+    @media (max-width:900px){
+      .wrap{grid-template-columns:1fr}
+      nav{position:static; border-right:none; padding-right:0}
+      .hero{grid-template-columns:110px 1fr}
+      .grid-2{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#bio">Home</a>
-    <a href="#publications">Publications</a>
-    <a href="#talks">Talks</a>
-    <a href="#teaching">Teaching</a>
-  </nav>
+  <div class="wrap">
+    <!-- Sidebar -->
+    <nav>
+      <div class="name">Emilio J. Ochoa Alva</div>
+      <div class="subtitle">Biomedical Engineering PhD student<br/>University of Rochester</div>
+      <div class="menu">
+        <a href="#about">Home</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#service">Service</a>
+        <a href="#cv">CV</a>
+      </div>
+    </nav>
 
-  <section id="bio">
-    <h1>Emilio José Ochoa Alva</h1>
-    <img src="profile.jpeg" alt="Emilio Ochoa">
-    <p><b>PhD Student</b><br>
-    Biomedical Engineering<br>
-    University of Rochester</p>
-    <p>Email: tuemail@rochester.edu</p>
+    <!-- Main -->
+    <main>
+      <!-- Hero -->
+      <section id="about" class="card">
+        <div class="hero">
+          <img src="profile.jpeg" alt="Emilio J. Ochoa">
+          <div>
+            <h2>Emilio José Ochoa Alva</h2>
+            <p class="meta">
+              Biomedical Engineering PhD student — University of Rochester · Rochester, NY, USA<br/>
+              Email: <a href="mailto:eochoaal@ur.rochester.edu">eochoaal@ur.rochester.edu</a> ·
+              <a href="https://scholar.google.com/citations?user=yE7tRo4AAAAJ&hl=es&oi=ao" target="_blank" rel="noopener">Google Scholar</a> ·
+              <a href="#cv">Download CV</a>
+            </p>
+            <p>
+              I work at the intersection of <b>AI</b> and <b>medical ultrasound</b>, with projects that
+              enable diagnostic imaging in <b>low-resource settings</b> (e.g., obstetrics and breast imaging).
+              I am advised by <b>Benjamin Castañeda</b> and collaborate with the Medical Images Lab (PUCP). :contentReference[oaicite:1]{index=1}
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <p><b>Research Interests:</b></p>
-    <ul>
-      <li>Artificial Intelligence in Biomedical Applications</li>
-      <li>Ultrasound Imaging</li>
-      <li>Optics and Biomedical Devices</li>
-    </ul>
-  </section>
+      <!-- Research interests + News/Awards -->
+      <section id="research" class="card">
+        <div class="grid-2">
+          <div>
+            <h2>Research Interests</h2>
+            <ul>
+              <li>Artificial intelligence for biomedical imaging</li>
+              <li>Ultrasound (VSI, H-scan, segmentation & detection)</li>
+              <li>Optics/biophotonics & elastography</li>
+              <li>Accessible diagnostics for low-resource settings</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Awards & News</h2>
+            <ul>
+              <li>Second Prize — RCBU Biomedical Ultrasound Symposium Day (Poster), 2024. :contentReference[oaicite:2]{index=2}</li>
+              <li>Second Prize — International Conference on Biomedical and Health Informatics student challenge, 2022. :contentReference[oaicite:3]{index=3}</li>
+              <li>GPA 3.96 in BME PhD coursework. :contentReference[oaicite:4]{index=4}</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <p>(Próximamente...)</p>
-  </section>
+      <!-- Publications -->
+      <section id="publications" class="card">
+        <h2>Selected Publications</h2>
+        <p class="meta">Full list on <a href="https://scholar.google.com/citations?user=yE7tRo4AAAAJ&hl=es&oi=ao" target="_blank" rel="noopener">Google Scholar</a>.
+          The entries below are excerpted from my CV. :contentReference[oaicite:5]{index=5}</p>
+        <ol class="pub">
+          <li><b>Standardizing Obstetric Ultrasound Segmentation Using Unpaired Domain Translation Techniques</b>. IUS 2025 (accepted). <i>First author</i>. :contentReference[oaicite:6]{index=6}</li>
+          <li><b>First Exploration of H-scan Ultrasound Imaging in Diabetic Foot: A Feasibility Study</b>. IUS 2025 (accepted). <i>First author</i>. :contentReference[oaicite:7]{index=7}</li>
+          <li><b>Automated Analysis of Fetal Heart Rate from VSI-Based Ultrasound Using Segmentation-Guided Optical Flow</b>. IUS 2025 (accepted). <i>First author</i>. :contentReference[oaicite:8]{index=8}</li>
+          <li><b>A Comparison Between Deep Learning Architectures for Breast Tumor Segmentation Using VSI Ultrasound</b>. <i>IEEE EMBC 2024</i>. DOI: 10.1109/EMBC53108.2024.10782786. :contentReference[oaicite:9]{index=9}</li>
+          <li><b>Classification of Keratoconus Stage Based on OCT Elastography Using ML and Novel Biomarkers</b>. <i>SPIE Photonics West 2024</i>. DOI: 10.1117/12.3003578. :contentReference[oaicite:10]{index=10}</li>
+          <li><b>Automatic ROI Detection for Reverberant Shear Wave Elastography in Foot</b>. <i>SIPAIM 2023</i>. pp. 1–4. :contentReference[oaicite:11]{index=11}</li>
+        </ol>
+        <p class="meta">Conference proceedings and additional works include CLASD 2024 and ISC R9 LATAM 2021, among others. :contentReference[oaicite:12]{index=12}</p>
+      </section>
 
-  <section id="talks">
-    <h2>Talks</h2>
-    <p>(Próximamente...)</p>
-  </section>
+      <!-- Teaching -->
+      <section id="teaching" class="card">
+        <h2>Teaching</h2>
+        <ul>
+          <li><b>Teaching Assistant — PUCP</b> (2022–2023): Digital Signal Processing; Digital Circuits & Systems; Teoría de Comunicaciones; Temas de Ingeniería Electrónica; Procesamiento Aleatorio. :contentReference[oaicite:13]{index=13}</li>
+          <li><b>Teaching Assistant — UPCH</b> (2023): Pattern Recognition; Clinical Applications in Signal & Images. :contentReference[oaicite:14]{index=14}</li>
+        </ul>
+      </section>
 
-  <section id="teaching">
-    <h2>Teaching</h2>
-    <p>(Próximamente...)</p>
-  </section>
+      <!-- Service -->
+      <section id="service" class="card">
+        <h2>Service</h2>
+        <ul>
+          <li><b>RCBU Work in Progress Series</b>, Organizer (2025– ): reactivación y coordinación del ciclo mensual de seminarios de ultrasonido en UR. :contentReference[oaicite:15]{index=15}</li>
+          <li>IEEE UPCH — Vicepresidente (2022) y Coordinador de Marketing (2021–2022). :contentReference[oaicite:16]{index=16}</li>
+        </ul>
+      </section>
+
+      <!-- CV -->
+      <section id="cv" class="card">
+        <h2>Curriculum Vitae</h2>
+        <p>
+          For complete details on education, publications, teaching, service, and professional experience (Interhealth EIRL; Dräger Perú trainee), see my CV. :contentReference[oaicite:17]{index=17}
+        </p>
+        <p><a class="btn" href="CV_Emilio_Ochoa.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
+      </section>
+
+      <footer>
+        © <span id="y"></span> Emilio José Ochoa Alva · Last updated by hand.
+      </footer>
+    </main>
+  </div>
+  <script>document.getElementById("y").textContent=new Date().getFullYear()</script>
 </body>
 </html>
